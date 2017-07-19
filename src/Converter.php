@@ -41,11 +41,6 @@ class Converter implements ConverterInterface
             $cwd = getcwd();
             $from = strpos($from, $cwd) === 0 ? $from : $cwd.'/'.$from;
             $to = strpos($to, $cwd) === 0 ? $to : $cwd.'/'.$to;
-
-            // or traveling the tree via `..`
-            // attempt to resolve path, or assume it's fine if it doesn't exist
-            $from = realpath($from) ?: $from;
-            $to = realpath($to) ?: $to;
         }
 
         $from = $this->dirname($from);
